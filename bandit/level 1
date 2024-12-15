@@ -1,0 +1,49 @@
+We already have the password to acess level 1 : ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+and we need the password to get to level 2 , let's connect as usual using ssh .
+
+___________________________________________________________________________________
+
+jkome0x@44-03-2C-69-F0-32:~$ sudo ssh bandit1@bandit.labs.overthewire.org -p 2220
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit1@bandit.labs.overthewire.org's password: 
+
+      ,----..            ,----,          .---.
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' '
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      :
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ;
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"
+     \   \ .'        ;   |.'       \   \ ;
+  www. `---` ver     '---' he       '---" ire.org
+
+
+Welcome to OverTheWire!
+
+____________________________________________________________________________________
+
+as you see , we found a file named : - , and we couldn't read its content using the usual cat , so we used pwd : print working directory , and bingo we got our password :
+___________________________________________________________________________________
+
+bandit1@bandit:~$ ls
+-
+bandit1@bandit:~$ cat -
+^C
+bandit1@bandit:~$ pwd
+/home/bandit1
+bandit1@bandit:~$ cat /home/bandit1/-
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+bandit1@bandit:~$ 

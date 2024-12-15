@@ -1,0 +1,15 @@
+We already have access to this level using the password : FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+The hints from the documentation are : The password for the next level is stored in the file data.txt, which contains base64 encoded data
+__________________________________________________________________________________________
+
+
+bandit10@bandit:~$ cat data.txt
+VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==
+bandit10@bandit:~$ echo "VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==" | base64 --decode
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+bandit10@bandit:~$ 
+
+___________________________________________________________________________________________
+
+Bingo ! We got the password for the next level in a neat way !!

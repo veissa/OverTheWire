@@ -1,0 +1,50 @@
+we already have acess to this level using the password : MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+let's try beating level 4 !
+
+_____________________________________________________________________________
+
+bandit3@bandit:~/inhere$ ls -als
+total 12
+4 drwxr-xr-x 2 root    root    4096 Jul 17 15:57 .
+4 drwxr-xr-x 3 root    root    4096 Jul 17 15:57 ..
+4 -rw-r----- 1 bandit4 bandit3   33 Jul 17 15:57 ...Hiding-From-You
+bandit3@bandit:~/inhere$ cat ...Hiding-From-You
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+bandit3@bandit:~/inhere$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+______________________________________________________________________________
+
+Bingo ! , we somehow did it , using the ls -als , displays more info while listing the contents of a directory , it displays the permessions , the owners , group owners , size ,
+modification dates and the name of the files , we all know that a directory or file starting with " . " means it is hidden , that is why the ls command won't be capable of displaying it .
+
+here is a break down of this line : 4 -rw-r----- 1 bandit4 bandit3   33 Jul 17 15:57 ...Hiding-From-You 
+
+>    4: This is the number of hard links to the file. It indicates how many directory entries reference this file.
+
+>    -rw-r-----: This is the file's permission string. It shows the permissions for the file in three sets:
+     >   -: The first character indicates the file type. A dash (-) means it is a regular file.
+     >  rw-: The next three characters are the owner's permissions (read and write).
+     >   r--: The next three characters are the group's permissions (read-only).
+     >  ---: The last three characters are the permissions for others (no permissions).
+
+>    1: This is the number of hard links to the file.
+
+>   bandit4: This is the owner of the file.
+
+>    bandit3: This is the group owner of the file.
+
+>    33: This is the size of the file in bytes.
+
+>    Jul 17 15:57: This is the date and time when the file was last modified.
+
+>    ...Hiding-From-You: This is the name of the file.
+
+--> Putting it all together, this line indicates that the file named ...Hiding-From-You:
+
+    Is a regular file.
+    Has read and write permissions for the owner (bandit4), read-only permissions for the group (bandit3), and no permissions for others.
+    Is owned by user bandit4 and group bandit3.
+    Has a size of 33 bytes.
+    Was last modified on July 17 at 15:57.

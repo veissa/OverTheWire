@@ -1,0 +1,34 @@
+We already have access to this level using tha passsword : 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+In the documentation page we have this hint : The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.
+
+____________________________________________________________________________________________
+
+bandit9@bandit:~$ ls
+data.txt
+bandit9@bandit:~$ cat data.txt | grep "="
+grep: (standard input): binary file matches
+bandit9@bandit:~$ strings data.txt | grep "="
+=aA"f
+\a!;========== the
+PWAF=1
+         M),\}=
+2Y6=
+G';?e=
+========== passwordf
+========== isc
+*=N6
+m=</
+E=Bty
+=sw
+"M1=
+========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+!&=u&4$
+*XA=
+bandit9@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+___________________________________________________________________________________________
+
+As u can see , we couldn't use grep on cat data.txt , because this file doesn't contain only asccii characters , thus we had to use strings & grep !
+
+Bingo !

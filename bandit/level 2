@@ -1,0 +1,17 @@
+We got the password to acess this level : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+let's try to break into level 3 now .
+as usual , form now on i no longer will provide the instructions to login to each level using ssh , u should be familiar with that by now !
+
+______________________________________________________________________
+
+bandit2@bandit:~$ 
+bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ cat "spaces in this filename"
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+bandit2@bandit:~$ 
+_____________________________________________________________________
+
+as you can see , to display the contents of the file that is named with spaces on it "spaes in this name" for exapmple , doing the usual cat , will not work , as it will treat each of the words as a different file
+for example , it will consider spaces a file , in a file , this a file , and name a file too ! 
+hence we used the "" to indicate that it is just the name of one single file we are trying to cat . bingo !

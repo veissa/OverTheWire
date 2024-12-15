@@ -1,0 +1,46 @@
+We already have access to this level using the password : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+let's try breaking to level 6 !
+
+Note : if you have bad connection , or you don't have a shell at your machine ( even you should be , like wsl , and in linux , mac) , whatever i am facing some trouble connecting to the ssh
+
+cause i am already using proxies , and don't have good connection for the moment , so i am using the google cloud shell , i recommend it , super fast and stable !
+
+________________________________________________________________________________________________
+
+bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere
+bandit5@bandit:~/inhere$ ls
+maybehere00  maybehere02  maybehere04  maybehere06  maybehere08  maybehere10  maybehere12  maybehere14  maybehere16  maybehere18
+maybehere01  maybehere03  maybehere05  maybehere07  maybehere09  maybehere11  maybehere13  maybehere15  maybehere17  maybehere19
+
+__________________________________________________________________________________________________
+
+
+
+Bandit Level 5 → Level 6
+Level Goal
+
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+    human-readable
+    1033 bytes in size
+    not executable
+
+Commands you may need to solve this level
+
+ls , cd , cat , file , du , find
+
+
+_______________________________________________________________________________________________________
+
+Using the find command this way : 
+
+andit5@bandit:~/inhere$ find . -type f -readable -size 1033c ! -executable  
+./maybehere07/.file2
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+________________________________________________________________________________________________________
+
+Bingo ! , we got our password !

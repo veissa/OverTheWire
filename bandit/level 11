@@ -1,0 +1,26 @@
+We already have access to this level using the password : dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+Let's try beat level 12 ! 
+
+Hints : The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+___________________________________________________________________________________________
+
+bandit11@bandit:~$ ls
+data.txt
+bandit11@bandit:~$ cat data.txt
+Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4
+bandit11@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+__________________________________________________________________________________________
+
+We got something out of this , but we do not know what it is excpet for the hint !
+
+to solve this , let's go to : https://rot13.com/
+
+we enter what we got from the data.txt file , and submit it .
+
+Bingo ! we got : The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 
+

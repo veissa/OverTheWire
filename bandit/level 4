@@ -1,0 +1,92 @@
+# An INSANE WAY AND LEGENDARY WAY TO DO IT IN ONE LINE IS SIMPLY BY : 
+
+cat $(find . -type f -exec file {} + | grep "ASCII text" | cut -d: -f1)
+
+
+_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+
+
+we already have access to this level using the password : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+let's try breaking to level 5 :
+
+in the overthewire page level 4 --> level 5 , we get the following infos : 
+
+______________________________________________________________________________________________________________________________________________________________________
+
+Bandit Level 4 → Level 5
+Level Goal
+
+The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
+Commands you may need to solve this level
+
+ls , cd , cat , file , du , find
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+the find command would come in handy in these situation , if you know nothing about it , go ahead and read its documentation in tha man page , simply by typing : man find
+
+But there is another way , and it is how i prefer to do it , notice all the files in the inhere directory have this pattern -file03 for example , so even if you try something like
+
+cat -file03 , it won't work , because of the special character "-" , so I will just have to use my favorite command : file , which displays the type of data a file has , 
+
+so we know a human readable file , would be consisted of ASCCI text , for those of you who doesn't know what that is , go ahead look it up .
+
+
+bandit4@bandit:~/inhere$ ls -als
+total 48
+4 drwxr-xr-x 2 root    root    4096 Jul 17 15:57 .
+4 drwxr-xr-x 3 root    root    4096 Jul 17 15:57 ..
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file00
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file01
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file02
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file03
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file04
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file05
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file06
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file07
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file08
+4 -rw-r----- 1 bandit5 bandit4   33 Jul 17 15:57 -file09
+
+# So running the file command should give us a result :
+
+bandit4@bandit:~/inhere$ file ./*
+./-file00: data
+./-file01: data
+./-file02: data
+./-file03: data
+./-file04: data
+./-file05: data
+./-file06: data
+./-file07: ASCII text
+./-file08: data
+./-file09: data
+_________________________________________________________________________
+
+Bingo ! , we Got him boss ! , it is ./-file07 !
+
+bandit4@bandit:~/inhere$ cat ./-file07
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+_________________________________________________________________________
+
+# Another way to do it would be by using the find command , here is a break down : 
+
+bandit4@bandit:~/inhere$ find . -type f -exec file {} + | grep "ASCII text"
+./-file07: ASCII text
+bandit4@bandit:~/inhere$ cat ./-file07
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+________________________________________________________________________
+
+it is ironic as this uses the command file inside the find , we can simply do , and i mean for simplicity's sake , and maybe if we have too many files :  file ./* | grep "ASCI"
+
+and this should give us the same result , anyway : 
+
+using this means : find . -type f -exec file {} + | grep "ASCII text"
+
+> find . -type f: This command finds all regular files in the current directory and its subdirectories.
+> -exec file {} +: For each file found, this runs the file command, which identifies the file type.
+> grep "ASCII text": This filters the output to show only files identified as "ASCII text", which are human-readable.
+
+

@@ -1,0 +1,21 @@
+We already have acess to this level using the password : dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Let's try beat level 9 !!
+__________________________________________________________________________________________
+
+Clues : The password for the next level is stored in the file data.txt and is the only line of text that occurs only once
+__________________________________________________________________________________________
+
+To do that : 
+
+__________________________________________________________________________________________
+
+bandit8@bandit:~$ ls
+data.txt
+bandit8@bandit:~$ sort data.txt | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+bandit8@bandit:~$ 
+
+___________________________________________________________________________________________
+
+easy right ! learning linux is sure super fun hehe !
